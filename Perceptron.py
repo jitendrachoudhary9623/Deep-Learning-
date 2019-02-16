@@ -45,6 +45,9 @@ class Perceptron:
 		self.w=np.ones(X.shape[0])
 		self.b=0
 		accuracy={}
+		max_accuracy=0
+		checkpoint_weights=0
+		checkpoint_b=0
 		for i in range(epochs):
 			#for each col in dataset
 			for x,y in zip(X,Y):
@@ -58,6 +61,12 @@ class Perceptron:
 					self.w=self.w-x
 					self.b=self.b-1
 			accuracy[i]=accuracy_score(self.predict(X),Y)
+			if(max_accuracy<accuracy[i]):
+				max_accuracy=accuracy[i]
+				checkpoint_weights=self.w
+				checkpoint_b=self.b
 			print("Accuracy at epoch {} is {}".format(i,accuracy[i]))
+		self.w=checkpoint_weights
+		self.b=checkpoints_b
 		plt.plot(accuracy.values())
 		plt.show()
