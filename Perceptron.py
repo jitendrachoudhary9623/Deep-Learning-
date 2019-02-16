@@ -34,7 +34,7 @@ class Perceptron:
 		return np.array(Y)
 		
 
-	def fit(self,X,Y,epochs=1):
+	def fit(self,X,Y,epochs=1,learning_rate=1):
 		'''
 		fits the model and find optimal weights and bias
 		Utiliz	es learning algorithm
@@ -55,11 +55,11 @@ class Perceptron:
 				#for each misclassified point
 				#if prediction is 1 then add else subract
 				if y == 1 and y_pred == 0:
-					self.w=self.w+x
-					self.b=self.b+1
+					self.w=self.w+learning_rate*x
+					self.b=self.b+learning_rate*1
 				elif y == 0 and y_pred == 1:
-					self.w=self.w-x
-					self.b=self.b-1
+					self.w=self.w-learning_rate*x
+					self.b=self.b-learning_rate*1
 			accuracy[i]=accuracy_score(self.predict(X),Y)
 			if(max_accuracy<accuracy[i]):
 				max_accuracy=accuracy[i]
