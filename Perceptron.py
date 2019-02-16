@@ -58,5 +58,6 @@ class Perceptron:
 					self.w=self.w-x
 					self.b=self.b-1
 			accuracy[i]=accuracy_score(self.predict(X),Y)
+			print("Accuracy at epoch {} is {}".format(i,accuracy[i]))
 		plt.plot(accuracy.values())
 		plt.show()
