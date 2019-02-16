@@ -1,4 +1,5 @@
 from sklearn.metrics import accuracy_score
+import numpy as np
 
 class MPNeuron:
 	'''
