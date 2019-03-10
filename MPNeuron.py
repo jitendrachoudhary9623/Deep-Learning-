@@ -39,7 +39,7 @@ class MPNeuron:
 		accuracy={}
 		for b in range(X.shape[1]):
 			self.b=b
-			Y_pred=sel.predict(X)
+			Y_pred=self.predict(X)
 			accuracy[b]=accuracy_score(Y_pred,Y)
 		best_b=max(accuracy,key=accuracy.get)
 		self.b=best_b
